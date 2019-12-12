@@ -3,8 +3,8 @@ const arePointsEqual = function(a, b) {
 };
 
 class Line {
-  constructor(x1, y1, x2, y2) {
-    (this.a = [x1, y1]), (this.b = [x2, y2]);
+  constructor(pointA, pointB) {
+    (this.a = pointA), (this.b = pointB);
   }
 
   toString() {
