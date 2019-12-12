@@ -4,7 +4,7 @@ class Line {
   }
 
   toString() {
-    return `line : { p1 : (${this.p1[0]},${this.p1[1]}), p2 : (${this.p2[0]},${this.p2[1]}) }`;
+    return `Line : (${this.p1.x},${this.p1.y}), (${this.p2.x},${this.p2.x})`;
   }
 
   isEqualTo(line) {

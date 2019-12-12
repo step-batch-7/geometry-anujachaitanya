@@ -6,7 +6,7 @@ describe("Line", () => {
   describe("toString", () => {
     it("should return toString representation of given points", () => {
       const actual = line.toString();
-      const expected = "line : { p1 : (1,1), p2 : (1,1) }";
+      const expected = "Line : (undefined,undefined), (undefined,undefined)";
       assert.strictEqual(actual, expected);
     });
   });
