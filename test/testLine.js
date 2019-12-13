@@ -32,4 +32,26 @@ describe("Line", () => {
       assert.ok(line.isEqualTo(similarLine));
     });
   });
+
+  describe("length", () => {
+    it("should return length of line with both points in Ist quadrant", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
+      assert.strictEqual(line.length, 1);
+    });
+
+    it("should return length of line with both points in IIst quadrant", () => {
+      const line = new Line({ x: -1, y: 1 }, { x: -1, y: 2 });
+      assert.strictEqual(line.length, 1);
+    });
+
+    it("should return length of line with both points in IIIst quadrant", () => {
+      const line = new Line({ x: -1, y: -1 }, { x: -1, y: -2 });
+      assert.strictEqual(line.length, 1);
+    });
+
+    it("should return length of line with both points in IVst quadrant", () => {
+      const line = new Line({ x: 1, y: -1 }, { x: 1, y: -2 });
+      assert.strictEqual(line.length, 1);
+    });
+  });
 });

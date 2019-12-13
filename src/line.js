@@ -2,6 +2,11 @@ const arePointsEqual = function(a, b) {
   return a.x === b.x && a.y === b.y;
 };
 
+const getSquareOfDifference = function(x1, x2) {
+  const distanceBetweenXs = Math.abs(x1 - x2);
+  return distanceBetweenXs * distanceBetweenXs;
+};
+
 class Line {
   constructor(pointA, pointB) {
     this.a = { x: pointA.x, y: pointA.y };
@@ -15,6 +20,12 @@ class Line {
   isEqualTo(otherLine) {
     if (!otherLine instanceof Line) return false;
     return arePointsEqual(this.a, otherLine.a) && arePointsEqual(this.b, otherLine.b);
+  }
+
+  get length() {
+    const squareOfX = getSquareOfDifference(this.a.x, this.b.x);
+    const squareOfY = getSquareOfDifference(this.a.y, this.b.y);
+    return Math.sqrt(squareOfX + squareOfY);
   }
 }
 
