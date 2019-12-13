@@ -26,5 +26,10 @@ describe("Line", () => {
       const notALine = { a: { x: 1, y: 1 }, b: { x: 2, y: 1 } };
       assert.notOk(line.isEqualTo(notALine));
     });
+
+    it("should validate the instances of same class", () => {
+      const similarLine = new Line({ x: 1, y: 1 }, { x: 1, y: 1 });
+      assert.ok(line.isEqualTo(similarLine));
+    });
   });
 });
