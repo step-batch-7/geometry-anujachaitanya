@@ -13,8 +13,11 @@ class Line {
   }
 
   isEqualTo(otherLine) {
-    if (!otherLine instanceof Line) return false;
-    return arePointsEqual(this.a, otherLine.a) && arePointsEqual(this.b, otherLine.b);
+    return (
+      otherLine instanceof Line &&
+      arePointsEqual(this.a, otherLine.a) &&
+      arePointsEqual(this.b, otherLine.b)
+    );
   }
 
   get length() {
@@ -28,10 +31,8 @@ class Line {
   }
 
   isParallelTo(otherLine) {
-    if (otherLine instanceof Line) {
-      return otherLine.slope == this.slope;
-    }
-    return false;
+    if (otherLine === this) return false;
+    return otherLine instanceof Line && otherLine.slope == this.slope;
   }
 }
 

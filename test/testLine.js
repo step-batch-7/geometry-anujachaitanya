@@ -79,18 +79,6 @@ describe("Line", () => {
       assert.notOk(firstLine.isParallelTo(secondLine));
     });
 
-    it("should validate parallel line to the y-axis", () => {
-      const firstLine = new Line({ x: 0, y: 0 }, { x: 0, y: 2 });
-      const secondLine = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
-      assert.ok(firstLine.isParallelTo(secondLine));
-    });
-
-    it("should validate parallel line to the the x - axis", () => {
-      const firstLine = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
-      const secondLine = new Line({ x: 2, y: 2 }, { x: 3, y: 2 });
-      assert.ok(firstLine.isParallelTo(secondLine));
-    });
-
     it("should invalidate if given parameter is not Line", () => {
       const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
       assert.notOk(line.isParallelTo({ x: 2, y: 2 }, { x: 3, y: 2 }));
