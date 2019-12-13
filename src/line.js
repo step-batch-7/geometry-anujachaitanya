@@ -7,10 +7,6 @@ const getSquareOfDifference = function(x1, x2) {
   return distanceBetweenXs * distanceBetweenXs;
 };
 
-const slopeOfLine = function(a, b) {
-  return (b.y - a.y) / (b.x - a.x);
-};
-
 class Line {
   constructor(pointA, pointB) {
     this.a = { x: pointA.x, y: pointA.y };
@@ -32,10 +28,12 @@ class Line {
     return Math.sqrt(squareOfX + squareOfY);
   }
 
+  get slope() {
+    return (this.b.y - this.a.y) / (this.b.x - this.a.x);
+  }
+
   isParallelTo(otherLine) {
-    const m1 = slopeOfLine(otherLine.a, otherLine.b);
-    const m2 = slopeOfLine(this.a, this.b);
-    return m1 == m2;
+    return otherLine.slope == this.slope;
   }
 }
 

@@ -73,10 +73,22 @@ describe("Line", () => {
       assert.ok(firstLine.isParallelTo(secondLine));
     });
 
-    it("should invalidate non - parallel lines with length", () => {
+    it("should invalidate non - parallel lines", () => {
       const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1.5 });
       const secondLine = new Line({ x: 1, y: 2 }, { x: 3, y: 2 });
       assert.notOk(firstLine.isParallelTo(secondLine));
+    });
+  });
+
+  describe("slope", () => {
+    it("should return slope of given line", () => {
+      const line = new Line({ x: 4, y: 3 }, { x: 1, y: 2 });
+      assert.approximately(line.slope, 0.33, 0.01);
+    });
+
+    it("should return 0 of x- axis", () => {
+      const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
+      assert.strictEqual(line.slope, 0);
     });
   });
 });
