@@ -1,4 +1,4 @@
-const Line = require("../src/line").Line;
+const { Line } = require("../src/line");
 const assert = require("chai").assert;
 
 describe("Line", () => {

@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "apptest": "runAppTests.sh appTests/*.test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
