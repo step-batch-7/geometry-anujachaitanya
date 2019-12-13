@@ -12,10 +12,9 @@ class Line {
     return `Line : (${this.a.x},${this.a.y}), (${this.b.x},${this.b.x})`;
   }
 
-  isEqualTo(anotherLine) {
-    const isTypeEqual = anotherLine instanceof Line;
-    if (isTypeEqual) {
-      return arePointsEqual(this.a, anotherLine.a) && arePointsEqual(this.b, anotherLine.b);
+  isEqualTo(otherLine) {
+    if (otherLine instanceof Line) {
+      return arePointsEqual(this.a, otherLine.a) && arePointsEqual(this.b, otherLine.b);
     }
     return false;
   }
