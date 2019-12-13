@@ -1,0 +1,4 @@
+Done : 1. remove isTypeEqual
+Done : 2. write it in if block itself
+Done : 3. change the variable name of anotherLine to otherLine
+4. add Tests for isEqualTo
