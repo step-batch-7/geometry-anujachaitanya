@@ -53,5 +53,30 @@ describe("Line", () => {
       const line = new Line({ x: 1, y: -1 }, { x: 1, y: -2 });
       assert.strictEqual(line.length, 1);
     });
+
+    it("should return length of line in two different co-ordinates", () => {
+      const line = new Line({ x: -2, y: 8 }, { x: -7, y: -5 });
+      assert.approximately(line.length, 13.93, 0.01);
+    });
+  });
+
+  describe("isParallelTo", () => {
+    it("should validate given parallel lines with same length", () => {
+      const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
+      const secondLine = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
+      assert.ok(firstLine.isParallelTo(secondLine));
+    });
+
+    it("should validate given parallel lines with different length", () => {
+      const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
+      const secondLine = new Line({ x: 1, y: 2 }, { x: 3, y: 2 });
+      assert.ok(firstLine.isParallelTo(secondLine));
+    });
+
+    it("should invalidate non - parallel lines with length", () => {
+      const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1.5 });
+      const secondLine = new Line({ x: 1, y: 2 }, { x: 3, y: 2 });
+      assert.notOk(firstLine.isParallelTo(secondLine));
+    });
   });
 });
