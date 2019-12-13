@@ -78,6 +78,18 @@ describe("Line", () => {
       const secondLine = new Line({ x: 1, y: 2 }, { x: 3, y: 2 });
       assert.notOk(firstLine.isParallelTo(secondLine));
     });
+
+    it("should validate parallel line to the y-axis", () => {
+      const firstLine = new Line({ x: 0, y: 0 }, { x: 0, y: 2 });
+      const secondLine = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
+      assert.ok(firstLine.isParallelTo(secondLine));
+    });
+
+    it("should validate parallel line to the the x - axis", () => {
+      const firstLine = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
+      const secondLine = new Line({ x: 2, y: 2 }, { x: 3, y: 2 });
+      assert.ok(firstLine.isParallelTo(secondLine));
+    });
   });
 
   describe("slope", () => {
@@ -86,8 +98,23 @@ describe("Line", () => {
       assert.approximately(line.slope, 0.33, 0.01);
     });
 
+    it("should return infinite of y- axis", () => {
+      const line = new Line({ x: 0, y: 0 }, { x: 0, y: 2 });
+      assert.strictEqual(line.slope, Infinity);
+    });
+
     it("should return 0 of x- axis", () => {
       const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
+      assert.strictEqual(line.slope, 0);
+    });
+
+    it("should return slope of line parallel to y - axis", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
+      assert.strictEqual(line.slope, Infinity);
+    });
+
+    it("should return slope of line parallel to x - axis", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
       assert.strictEqual(line.slope, 0);
     });
   });
