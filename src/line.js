@@ -14,9 +14,10 @@ class Line {
 
   isEqualTo(anotherLine) {
     const isTypeEqual = anotherLine instanceof Line;
-    return (
-      isTypeEqual && arePointsEqual(this.a, anotherLine.a) && arePointsEqual(this.b, anotherLine.b)
-    );
+    if (isTypeEqual) {
+      return arePointsEqual(this.a, anotherLine.a) && arePointsEqual(this.b, anotherLine.b);
+    }
+    return false;
   }
 }
 
