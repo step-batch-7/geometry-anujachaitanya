@@ -7,6 +7,11 @@ const findIntercept = function(line) {
   return line.a.y - m * line.a.x;
 };
 
+const isNumberInRange = function(range, number) {
+  const [lowerLimit, higherLimit] = range.sort();
+  return lowerLimit <= number && higherLimit >= number;
+};
+
 class Line {
   constructor(pointA, pointB) {
     this.a = { x: pointA.x, y: pointA.y };
@@ -46,6 +51,7 @@ class Line {
   }
 
   findY(x) {
+    if (!isNumberInRange([this.a.x, this.b.x], x)) return NaN;
     if (this.slope === Infinity) return this.a.y;
     const dx = x - this.a.x;
     return dx * this.slope + this.a.y;

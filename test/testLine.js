@@ -114,11 +114,6 @@ describe("Line", () => {
   });
 
   describe("findY", () => {
-    it("should return y-intercept for given x-intercept", () => {
-      const line = new Line({ x: 4, y: -2 }, { x: 5, y: -4 });
-      assert.strictEqual(line.findY(3), 0);
-    });
-
     it("should give Y for given x when edge point is given", function() {
       const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
       const actual = line.findY(3);
@@ -128,6 +123,11 @@ describe("Line", () => {
     it("should return y , if the x is present on line", function() {
       const line = new Line({ x: -1, y: 3 }, { x: 3, y: -1 });
       assert.strictEqual(line.findY(1), 1);
+    });
+
+    it("should give NaN if given x is not present on line", function() {
+      const line = new Line({ x: -1, y: 3 }, { x: 3, y: -1 });
+      assert.isNaN(line.findY(4));
     });
   });
 });
