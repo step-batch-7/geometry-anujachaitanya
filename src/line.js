@@ -71,12 +71,6 @@ class Line {
     const secondLine = new Line({ x: midPoint.x, y: midPoint.y }, { x: this.b.x, y: this.b.y });
     return [firstLine, secondLine];
   }
-
-  hasPoint(point) {
-    const m = this.slope;
-    const yIntercept = findIntercept(this.a.x, this.a.y, this.slope);
-    return point.y == m * point.x + yIntercept;
-  }
 }
 
 module.exports = { Line };
