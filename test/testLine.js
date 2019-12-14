@@ -79,6 +79,12 @@ describe("Line", () => {
       assert.notOk(firstLine.isParallelTo(secondLine));
     });
 
+    it("should invalidate overlapping lines", () => {
+      const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1.5 });
+      const secondLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1.5 });
+      assert.notOk(firstLine.isParallelTo(secondLine));
+    });
+
     it("should invalidate if given parameter is not Line", () => {
       const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
       assert.notOk(line.isParallelTo({ x: 2, y: 2 }, { x: 3, y: 2 }));
