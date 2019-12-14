@@ -31,6 +31,10 @@ describe("Line", () => {
       const similarLine = new Line({ x: 1, y: 1 }, { x: 1, y: 1 });
       assert.ok(line.isEqualTo(similarLine));
     });
+    it("should validate if line a and line b have same end points", () => {
+      const similarLine = new Line({ x: 1, y: 1 }, { x: 1, y: 1 });
+      assert.ok(line.isEqualTo(similarLine));
+    });
   });
 
   describe("length", () => {

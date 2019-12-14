@@ -7,6 +7,10 @@ class Point {
   toString() {
     return `[Point @(${this.x},${this.y})]`;
   }
+
+  clone() {
+    return { x: this.x, y: this.y };
+  }
 }
 
 module.exports = { Point };

@@ -8,4 +8,11 @@ describe("Point", () => {
       assert.strictEqual(point.toString(), "[Point @(2,3)]");
     });
   });
+
+  describe("clone", () => {
+    it("should return copy of given point", () => {
+      const point = new Point(2, 3);
+      assert.deepStrictEqual(point.clone(), { x: 2, y: 3 });
+    });
+  });
 });

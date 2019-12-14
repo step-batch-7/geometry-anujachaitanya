@@ -2,3 +2,10 @@ Done : 1. remove isTypeEqual variable
 Done : 2. write it in if block itself
 Done : 3. change the variable name of anotherLine to otherLine
 Done : 4. add Tests for isEqualTo
+
+------------------------------14 Dec-------------------------
+
+1. add p.visit with Tests
+Done : 2. add p.clone
+3. add a.split() 
+4 .add a.hasPoint(p) 
