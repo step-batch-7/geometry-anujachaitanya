@@ -67,8 +67,8 @@ class Line {
     let midPoint = {};
     midPoint.x = (this.a.x + this.b.x) / 2;
     midPoint.y = (this.a.y + this.b.y) / 2;
-    const firstLine = new Line(this.a, { x: midPoint.x, y: midPoint.y });
-    const secondLine = new Line({ x: midPoint.x, y: midPoint.y }, this.b);
+    const firstLine = new Line({ x: this.a.x, y: this.a.y }, { x: midPoint.x, y: midPoint.y });
+    const secondLine = new Line({ x: midPoint.x, y: midPoint.y }, { x: this.b.x, y: this.b.y });
     return [firstLine, secondLine];
   }
 }

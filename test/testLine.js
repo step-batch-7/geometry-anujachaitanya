@@ -93,6 +93,11 @@ describe("Line", () => {
       const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
       assert.notOk(line.isParallelTo({ x: 2, y: 2 }, { x: 3, y: 2 }));
     });
+
+    it("should invalidate line itself is passed", () => {
+      const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
+      assert.notOk(line.isParallelTo(line));
+    });
   });
 
   describe("slope", () => {
