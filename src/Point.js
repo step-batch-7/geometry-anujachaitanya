@@ -8,6 +8,9 @@ class Point {
     return `[Point @(${this.x},${this.y})]`;
   }
 
+  isEqualTo(otherPoint) {
+    return otherPoint instanceof Point && otherPoint.x == this.x && otherPoint.y == this.y;
+  }
   clone() {
     return new Point(this.x, this.y);
   }

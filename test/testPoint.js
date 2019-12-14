@@ -32,5 +32,29 @@ describe("Point", () => {
         );
       });
     });
+
+    describe("isEqualTo", () => {
+      it("should validate two same points", () => {
+        const point = new Point(2, 3);
+        const otherPoint = new Point(2, 3);
+        assert.ok(point.isEqualTo(otherPoint));
+      });
+
+      it("should invalidate points with different co-ordinates", () => {
+        const point = new Point(2, 3);
+        const otherPoint = new Point(2, 4);
+        assert.notOk(point.isEqualTo(otherPoint));
+      });
+
+      it("should validate two same instances", () => {
+        const point = new Point(2, 3);
+        assert.ok(point.isEqualTo(point));
+      });
+
+      it("should invalidate instances from different classes", () => {
+        const point = new Point(2, 3);
+        assert.notOk(point.isEqualTo({ x: 2, y: 3 }));
+      });
+    });
   });
 });
