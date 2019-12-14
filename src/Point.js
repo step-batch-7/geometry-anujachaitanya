@@ -9,7 +9,11 @@ class Point {
   }
 
   clone() {
-    return { x: this.x, y: this.y };
+    return new Point(this.x, this.y);
+  }
+
+  visit(funcReference) {
+    return funcReference(this.x, this.y);
   }
 }
 

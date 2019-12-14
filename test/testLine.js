@@ -66,8 +66,8 @@ describe("Line", () => {
 
   describe("isParallelTo", () => {
     it("should validate given parallel lines with same length", () => {
-      const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
-      const secondLine = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
+      const firstLine = new Line({ x: 1, y: 0 }, { x: 2, y: 0 });
+      const secondLine = new Line({ x: 3, y: 3 }, { x: 4, y: 3 });
       assert.ok(firstLine.isParallelTo(secondLine));
     });
 
@@ -145,6 +145,19 @@ describe("Line", () => {
       const line = new Line({ x: 6, y: 0 }, { x: 8, y: 3 });
       const actual = line.findX(3);
       assert.strictEqual(actual, 8);
+    });
+  });
+
+  describe("split", () => {
+    it("should return 2 lines split exactly at the centre of line a", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
+      const actual = line.split();
+      const expected = [
+        { a: { x: 1, y: 1 }, b: { x: 1, y: 1.5 } },
+        { a: { x: 1, y: 1.5 }, b: { x: 1, y: 2 } }
+      ];
+
+      assert.deepStrictEqual(actual, expected);
     });
   });
 });
