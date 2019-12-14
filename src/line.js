@@ -14,7 +14,7 @@ class Line {
   }
 
   toString() {
-    return `Line (${this.a.x},${this.a.y}) to (${this.b.x},${this.b.x})`;
+    return `[Line (${this.a.x},${this.a.y}) to (${this.b.x},${this.b.x})]`;
   }
 
   isEqualTo(otherLine) {
@@ -43,6 +43,12 @@ class Line {
       return yInterceptOfOtherLine != yInterceptOfThisLine && otherLine.slope == this.slope;
     }
     return false;
+  }
+
+  findY(x) {
+    if (this.slope === Infinity) return this.a.y;
+    const dx = x - this.a.x;
+    return dx * this.slope + this.a.y;
   }
 }
 

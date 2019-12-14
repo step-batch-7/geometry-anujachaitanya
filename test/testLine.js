@@ -6,7 +6,7 @@ describe("Line", () => {
   describe("toString", () => {
     it("should return string representation of given line", () => {
       const actual = line.toString();
-      const expected = "Line (1,1) to (1,1)";
+      const expected = "[Line (1,1) to (1,1)]";
       assert.strictEqual(actual, expected);
     });
   });
@@ -110,6 +110,24 @@ describe("Line", () => {
     it("should return 0 of x- axis", () => {
       const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
       assert.strictEqual(line.slope, 0);
+    });
+  });
+
+  describe("findY", () => {
+    it("should return y-intercept for given x-intercept", () => {
+      const line = new Line({ x: 4, y: -2 }, { x: 5, y: -4 });
+      assert.strictEqual(line.findY(3), 0);
+    });
+
+    it("should give Y for given x when edge point is given", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const actual = line.findY(3);
+      assert.strictEqual(actual, 8);
+    });
+
+    it("should return y , if the x is present on line", function() {
+      const line = new Line({ x: -1, y: 3 }, { x: 3, y: -1 });
+      assert.strictEqual(line.findY(1), 1);
     });
   });
 });
