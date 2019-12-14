@@ -6,7 +6,7 @@ describe("Line", () => {
   describe("toString", () => {
     it("should return string representation of given line", () => {
       const actual = line.toString();
-      const expected = "Line : (1,1), (1,1)";
+      const expected = "Line (1,1) to (1,1)";
       assert.strictEqual(actual, expected);
     });
   });
