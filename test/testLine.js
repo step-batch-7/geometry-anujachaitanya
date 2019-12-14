@@ -130,4 +130,17 @@ describe("Line", () => {
       assert.isNaN(line.findY(4));
     });
   });
+
+  describe("findX", () => {
+    it("should return Nan if given y is not present on the line", () => {
+      const line = new Line({ x: 4, y: -2 }, { x: 5, y: -4 });
+      assert.isNaN(line.findX(6));
+    });
+
+    it("should give X for given y when edge point is given", function() {
+      const line = new Line({ x: 6, y: 0 }, { x: 8, y: 3 });
+      const actual = line.findX(3);
+      assert.strictEqual(actual, 8);
+    });
+  });
 });
