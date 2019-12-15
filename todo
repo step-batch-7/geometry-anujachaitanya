@@ -8,10 +8,11 @@ Done : 4. add Tests for isEqualTo
 Done : 1. add p.visit with Tests
 Done : 2. add p.clone
 Done : 3. add a.split() 
-4. add a.hasPoint(p) 
+Done : 4. add a.hasPoint(p) 
 
 -----------------------------15 Dec -------------------------
-1. Modify test cases make them more readable
+Done : 1. Modify test cases make them more readable
     (isParallelTo , findX , findY)
-2. add a.hasPoint(p) 
+Done : 2. add a.hasPoint(p) 
 3. read your code try make it more readable. 
+4. add tests for hasPoint

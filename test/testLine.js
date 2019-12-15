@@ -1,4 +1,5 @@
 const { Line } = require("../src/line");
+const { Point } = require("../src/point");
 const assert = require("chai").assert;
 
 describe("Line", () => {
@@ -164,6 +165,14 @@ describe("Line", () => {
       ];
 
       assert.deepStrictEqual(actual, expected);
+    });
+  });
+
+  describe("hasPoint", function() {
+    it("should validate if point exist on the line", function() {
+      const line = new Line({ x: 1, y: 1 }, { x: 8, y: 8 });
+      const actual = line.hasPoint(new Point(4, 4));
+      assert.isOk(actual);
     });
   });
 });
