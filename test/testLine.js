@@ -123,12 +123,6 @@ describe("Line", () => {
   });
 
   describe("findY", () => {
-    it("should give Y for given x when edge point is given", function() {
-      const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
-      const actual = line.findY(3);
-      assert.strictEqual(actual, 8);
-    });
-
     it("should return y , if the x is present on line", function() {
       const line = new Line({ x: -1, y: 3 }, { x: 3, y: -1 });
       assert.strictEqual(line.findY(1), 1);
@@ -139,9 +133,9 @@ describe("Line", () => {
       assert.isNaN(line.findY(4));
     });
 
-    it("should return x when slope is zero", function() {
+    it("should return x when both y co-ordinates are equal", function() {
       const line = new Line({ x: 0, y: 0 }, { x: 8, y: 0 });
-      const actual = line.findX(0);
+      const actual = line.findY(0);
       assert.strictEqual(actual, 0);
     });
   });
@@ -152,7 +146,7 @@ describe("Line", () => {
       assert.isNaN(line.findX(6));
     });
 
-    it("should give X for given y when edge point is given", function() {
+    it("should give X for given y is present on line", function() {
       const line = new Line({ x: 6, y: 0 }, { x: 8, y: 3 });
       const actual = line.findX(3);
       assert.strictEqual(actual, 8);
