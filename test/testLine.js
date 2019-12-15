@@ -174,5 +174,17 @@ describe("Line", () => {
       const actual = line.hasPoint(new Point(4, 4));
       assert.isOk(actual);
     });
+
+    it("should invalidate if point doesn't exist on line", function() {
+      const line = new Line({ x: 1, y: 1 }, { x: 8, y: 8 });
+      const actual = line.hasPoint(new Point(4, 2));
+      assert.isNotOk(actual);
+    });
+
+    it("should validate if given point is end point of line", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 8, y: 8 });
+      const actual = line.hasPoint(new Point(8, 8));
+      assert.isOk(actual);
+    });
   });
 });
