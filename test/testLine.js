@@ -138,6 +138,12 @@ describe("Line", () => {
       const line = new Line({ x: -1, y: 3 }, { x: 3, y: -1 });
       assert.isNaN(line.findY(4));
     });
+
+    it("should return x when slope is zero", function() {
+      const line = new Line({ x: 0, y: 0 }, { x: 8, y: 0 });
+      const actual = line.findX(0);
+      assert.strictEqual(actual, 0);
+    });
   });
 
   describe("findX", () => {
@@ -150,6 +156,12 @@ describe("Line", () => {
       const line = new Line({ x: 6, y: 0 }, { x: 8, y: 3 });
       const actual = line.findX(3);
       assert.strictEqual(actual, 8);
+    });
+
+    it("should return x when slope is zero", function() {
+      const line = new Line({ x: 0, y: 0 }, { x: 8, y: 0 });
+      const actual = line.findX(0);
+      assert.strictEqual(actual, 0);
     });
   });
 
