@@ -38,29 +38,24 @@ describe("Line", () => {
   });
 
   describe("length", () => {
-    it("should return length of line with both points in Ist quadrant", () => {
+    it("should return length of line with both points have positive co-ordinates", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
       assert.strictEqual(line.length, 1);
     });
 
-    it("should return length of line with both points in IIst quadrant", () => {
+    it("should return length of line with points have both positive and negative co-ordinates", () => {
       const line = new Line({ x: -1, y: 1 }, { x: -1, y: 2 });
       assert.strictEqual(line.length, 1);
     });
 
-    it("should return length of line with both points in IIIst quadrant", () => {
+    it("should return length of line with both points have negative co-ordinates", () => {
       const line = new Line({ x: -1, y: -1 }, { x: -1, y: -2 });
       assert.strictEqual(line.length, 1);
     });
 
-    it("should return length of line with both points in IVst quadrant", () => {
-      const line = new Line({ x: 1, y: -1 }, { x: 1, y: -2 });
-      assert.strictEqual(line.length, 1);
-    });
-
-    it("should return length of line in two different co-ordinates", () => {
-      const line = new Line({ x: -2, y: 8 }, { x: -7, y: -5 });
-      assert.approximately(line.length, 13.93, 0.01);
+    it("should return 0 if both the points are equal", () => {
+      const line = new Line({ x: -1, y: -2 }, { x: -1, y: -2 });
+      assert.strictEqual(line.length, 0);
     });
   });
 
