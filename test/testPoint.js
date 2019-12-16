@@ -1,5 +1,6 @@
 const assert = require("chai").assert;
 const { Point } = require("../src/point");
+const { Line } = require("../src/line");
 
 describe("Point", () => {
   describe("toString", () => {
@@ -61,7 +62,11 @@ describe("Point", () => {
     it("should return distance between given two points ", () => {
       const firstPoint = new Point(2, 3);
       const secondPoint = new Point(3, 4);
-      assert.approximately(firstPoint.findDistanceTo(secondPoint), 1.4142, 0.0001);
+      assert.approximately(
+        firstPoint.findDistanceTo(secondPoint),
+        1.4142,
+        0.0001
+      );
     });
 
     it("should return zero if both points are same", () => {

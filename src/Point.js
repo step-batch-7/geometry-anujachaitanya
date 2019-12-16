@@ -1,3 +1,5 @@
+const { Line } = require("./line");
+
 class Point {
   constructor(x, y) {
     this.x = x;
@@ -9,7 +11,11 @@ class Point {
   }
 
   isEqualTo(otherPoint) {
-    return otherPoint instanceof Point && otherPoint.x == this.x && otherPoint.y == this.y;
+    return (
+      otherPoint instanceof Point &&
+      otherPoint.x == this.x &&
+      otherPoint.y == this.y
+    );
   }
   clone() {
     return new Point(this.x, this.y);
