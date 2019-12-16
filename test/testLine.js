@@ -227,6 +227,13 @@ describe("Line", () => {
 
   it("should return point if line have floating values", () => {
     const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
-    assert.deepStrictEqual(line.findPointFromStart(2), { x: 1, y: 1.8 });
+    const point = new Point(1, 1.7999999999999998);
+    assert.deepStrictEqual(line.findPointFromEnd(2), point);
+  });
+
+  it("should return undefined if distance is not a number", () => {
+    const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+    const point = new Point(1, 1.7999999999999998);
+    assert.isUndefined(line.findPointFromEnd("a"));
   });
 });
