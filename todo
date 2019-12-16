@@ -23,6 +23,6 @@ Done : 2. add more tests to it
 Done : 3. modify isParallelTo method use collinear method to implement it
 4. ask vivek about circular dependency
 Done : 5. isOn method
-5. add tests for isOn method
+Done : 5. add tests for isOn method
 6. findPointFromEnd
-7. findPointFromStart
+Done : 7. findPointFromStart

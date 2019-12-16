@@ -200,4 +200,21 @@ describe("Line", () => {
       assert.isOk(actual);
     });
   });
+
+  describe("findDistanceFromStart", () => {
+    it("should return point from given distance", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 8 });
+      assert.deepStrictEqual(line.findPointFromStart(2), { x: 1, y: 3 });
+    });
+
+    it("should return undefined if distance is not a number", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 8 });
+      assert.isUndefined(line.findPointFromStart("a"));
+    });
+
+    it("should return point if line have floating co-ordinates", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+      assert.deepStrictEqual(line.findPointFromStart(2), { x: 1, y: 3 });
+    });
+  });
 });
