@@ -16,3 +16,12 @@ Done : 1. Modify test cases make them more readable
 Done : 2. add a.hasPoint(p) 
 3. read your code try make it more readable. 
 Done : 4. add tests for hasPoint
+
+----------------------------16 dec--------------------------
+1. add findDistanceTo method
+2. add more tests to it
+3. modify isParallelTo method use collinear method to implement it
+4. ask vivek about circular dependency
+5. isOn method
+6. findPointFromEnd
+7. findPointFromStart

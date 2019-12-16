@@ -63,7 +63,7 @@ describe("Line", () => {
   describe("isParallelTo", () => {
     it("should validate given parallel lines with same length", () => {
       const firstLine = new Line({ x: 1, y: 0 }, { x: 2, y: 0 });
-      const secondLine = new Line({ x: 3, y: 3 }, { x: 4, y: 3 });
+      const secondLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
       assert.ok(firstLine.isParallelTo(secondLine));
     });
 
@@ -93,6 +93,12 @@ describe("Line", () => {
     it("should invalidate line itself is passed", () => {
       const line = new Line({ x: 0, y: 0 }, { x: 1, y: 0 });
       assert.notOk(line.isParallelTo(line));
+    });
+
+    it("should invalidate if given two segments lie on same line", () => {
+      const firstLine = new Line({ x: 0, y: 1 }, { x: 0, y: 1.5 });
+      const secondLine = new Line({ x: 0, y: 2 }, { x: 0, y: 3 });
+      assert.notOk(firstLine.isParallelTo(secondLine));
     });
   });
 
@@ -135,10 +141,10 @@ describe("Line", () => {
       assert.strictEqual(actual, 0);
     });
 
-    it("should give y coordinate for x coordinate of a line parallel to y-axis", () => {
-      const line = new Line({ x: 2, y: 0 }, { x: 2, y: 4 });
-      const actual = line.findY(2);
-      const expected = 0;
+    it("should give y coordinate for x coordinate of a line parallel to x-axis", () => {
+      const line = new Line({ x: 0, y: 2 }, { x: 4, y: 2 });
+      const actual = line.findY(3);
+      const expected = 2;
       assert.deepStrictEqual(actual, expected);
     });
   });
