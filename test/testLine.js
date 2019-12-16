@@ -141,11 +141,10 @@ describe("Line", () => {
       assert.strictEqual(actual, 0);
     });
 
-    it("should give y coordinate for x coordinate of a line parallel to x-axis", () => {
-      const line = new Line({ x: 0, y: 2 }, { x: 4, y: 2 });
-      const actual = line.findY(3);
-      const expected = 2;
-      assert.deepStrictEqual(actual, expected);
+    it("should return x when slope is zero", function() {
+      const line = new Line({ x: 0, y: 0 }, { x: 8, y: 0 });
+      const actual = line.findY(0);
+      assert.strictEqual(actual, 0);
     });
   });
 
