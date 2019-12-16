@@ -18,6 +18,12 @@ class Point {
   visit(funcReference) {
     return funcReference(this.x, this.y);
   }
+
+  findDistanceTo(point) {
+    const differenceInXs = this.x - point.x;
+    const differenceInYs = this.y - point.y;
+    return Math.sqrt(differenceInXs ** 2 + differenceInYs ** 2);
+  }
 }
 
 module.exports = { Point };

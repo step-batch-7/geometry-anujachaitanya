@@ -1,4 +1,5 @@
 const { Point } = require("./point");
+
 const arePointsEqual = function(a, b) {
   return a.x === b.x && a.y === b.y;
 };

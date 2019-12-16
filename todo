@@ -15,4 +15,4 @@ Done : 1. Modify test cases make them more readable
     (isParallelTo , findX , findY)
 Done : 2. add a.hasPoint(p) 
 3. read your code try make it more readable. 
-4. add tests for hasPoint
+Done : 4. add tests for hasPoint
