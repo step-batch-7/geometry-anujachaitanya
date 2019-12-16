@@ -19,8 +19,8 @@ class Point {
     return new Point(this.x, this.y);
   }
 
-  visit(funcReference) {
-    return funcReference(this.x, this.y);
+  visit(action) {
+    return action(this.x, this.y);
   }
 
   findDistanceTo(point) {
