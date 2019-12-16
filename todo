@@ -18,9 +18,9 @@ Done : 2. add a.hasPoint(p)
 Done : 4. add tests for hasPoint
 
 ----------------------------16 dec--------------------------
-1. add findDistanceTo method
-2. add more tests to it
-3. modify isParallelTo method use collinear method to implement it
+Done : 1. add findDistanceTo method
+Done : 2. add more tests to it
+Done : 3. modify isParallelTo method use collinear method to implement it
 4. ask vivek about circular dependency
 5. isOn method
 6. findPointFromEnd
