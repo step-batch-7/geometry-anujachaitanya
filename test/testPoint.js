@@ -75,4 +75,12 @@ describe("Point", () => {
       assert.strictEqual(firstPoint.findDistanceTo(secondPoint), 0);
     });
   });
+
+  describe("isOn", () => {
+    it("should validate if point is present on line", () => {
+      const point = new Point(2, 3);
+      const line = new Line(point, { x: 3, y: 4 });
+      assert.ok(point.isOn(line));
+    });
+  });
 });
