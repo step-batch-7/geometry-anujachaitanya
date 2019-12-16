@@ -63,5 +63,11 @@ describe("Point", () => {
       const secondPoint = new Point(3, 4);
       assert.approximately(firstPoint.findDistanceTo(secondPoint), 1.4142, 0.0001);
     });
+
+    it("should return zero if both points are same", () => {
+      const firstPoint = new Point(2, 3);
+      const secondPoint = new Point(2, 3);
+      assert.strictEqual(firstPoint.findDistanceTo(secondPoint), 0);
+    });
   });
 });

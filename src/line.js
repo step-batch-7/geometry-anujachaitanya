@@ -53,16 +53,22 @@ class Line {
 
   findY(x) {
     if (!isNumberInRange([this.a.x, this.b.x], x)) return NaN;
-    if (this.a.y == this.b.y) return this.a.y;
     const dx = x - this.a.x;
-    return dx * this.slope + this.a.y;
+    const y = dx * this.slope + this.a.y;
+    if (isNaN(y)) {
+      return this.a.y;
+    }
+    return y;
   }
 
   findX(y) {
     if (!isNumberInRange([this.a.y, this.b.y], y)) return NaN;
-    if (this.a.y == this.b.y) return this.a.x;
     const dy = y - this.a.y;
-    return dy / this.slope + this.a.x;
+    const x = dy / this.slope + this.a.x;
+    if (isNaN(x)) {
+      return this.a.x;
+    }
+    return x;
   }
 
   split() {
