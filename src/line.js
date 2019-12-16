@@ -4,8 +4,8 @@ const arePointsEqual = function(a, b) {
   return a.x === b.x && a.y === b.y;
 };
 
-const findIntercept = function(x, y, slope) {
-  return y - slope * x;
+const findYIntercept = function(point, slope) {
+  return point.y - slope * point.x;
 };
 
 const isNumberInRange = function(range, number) {
@@ -44,9 +44,15 @@ class Line {
   isParallelTo(otherLine) {
     if (otherLine === this) return false;
     if (otherLine instanceof Line) {
-      const yInterceptOfOtherLine = findIntercept(otherLine.a.x, otherLine.a.y, otherLine.slope);
-      const yInterceptOfThisLine = findIntercept(this.a.x, this.a.y, this.slope);
-      return yInterceptOfOtherLine != yInterceptOfThisLine && otherLine.slope == this.slope;
+      const yInterceptOfOtherLine = findYIntercept(
+        otherLine.a,
+        otherLine.slope
+      );
+      const yInterceptOfThisLine = findYIntercept(this.a, this.slope);
+      return (
+        yInterceptOfOtherLine != yInterceptOfThisLine &&
+        otherLine.slope == this.slope
+      );
     }
     return false;
   }
@@ -75,14 +81,21 @@ class Line {
     let midPoint = {};
     midPoint.x = (this.a.x + this.b.x) / 2;
     midPoint.y = (this.a.y + this.b.y) / 2;
-    const firstLine = new Line({ x: this.a.x, y: this.a.y }, { x: midPoint.x, y: midPoint.y });
-    const secondLine = new Line({ x: midPoint.x, y: midPoint.y }, { x: this.b.x, y: this.b.y });
+    const firstLine = new Line(
+      { x: this.a.x, y: this.a.y },
+      { x: midPoint.x, y: midPoint.y }
+    );
+    const secondLine = new Line(
+      { x: midPoint.x, y: midPoint.y },
+      { x: this.b.x, y: this.b.y }
+    );
     return [firstLine, secondLine];
   }
 
   hasPoint(point) {
     return (
-      point instanceof Point && (point.x === this.findX(point.y) || point.y === this.findY(point.x))
+      point instanceof Point &&
+      (point.x === this.findX(point.y) || point.y === this.findY(point.x))
     );
   }
 }
