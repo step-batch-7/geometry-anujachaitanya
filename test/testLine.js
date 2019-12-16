@@ -74,8 +74,8 @@ describe("Line", () => {
     });
 
     it("should invalidate non - parallel lines", () => {
-      const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1.5 });
-      const secondLine = new Line({ x: 1, y: 2 }, { x: 3, y: 2 });
+      const firstLine = new Line({ x: 0, y: 0 }, { x: 0, y: 5 });
+      const secondLine = new Line({ x: 0, y: 2 }, { x: 0, y: 2 });
       assert.notOk(firstLine.isParallelTo(secondLine));
     });
 
