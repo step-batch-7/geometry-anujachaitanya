@@ -1,4 +1,5 @@
 const { Circle } = require("../src/circle");
+const { Point } = require("../src/point");
 const assert = require("chai").assert;
 
 describe("circle", () => {
@@ -62,6 +63,20 @@ describe("circle", () => {
     it("should return perimeter for zero as radius", () => {
       const circle = new Circle({ x: 1, y: 3 }, 0);
       assert.strictEqual(circle.perimeter, 0);
+    });
+  });
+
+  describe("hasPoint", () => {
+    it("should validate if point is on the circumference", () => {
+      const circle = new Circle({ x: 1, y: 1 }, 5);
+      const point = new Point(4, 5);
+      assert.ok(circle.hasPoint(point));
+    });
+
+    it("should invalidate if point is on line", () => {
+      const circle = new Circle({ x: 1, y: 1 }, 5);
+      const point = new Point(1, 5);
+      assert.notOk(circle.hasPoint(point));
     });
   });
 });
