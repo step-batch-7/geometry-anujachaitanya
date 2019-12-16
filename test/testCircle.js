@@ -73,7 +73,7 @@ describe("circle", () => {
       assert.ok(circle.hasPoint(point));
     });
 
-    it("should invalidate if point is on line", () => {
+    it("should invalidate if point is not on line", () => {
       const circle = new Circle({ x: 1, y: 1 }, 5);
       const point = new Point(1, 5);
       assert.notOk(circle.hasPoint(point));
