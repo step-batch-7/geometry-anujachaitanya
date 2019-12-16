@@ -38,9 +38,7 @@ class Line {
   }
 
   get length() {
-    const differenceInXs = this.a.x - this.b.x;
-    const differenceInYs = this.a.y - this.b.y;
-    return Math.sqrt(differenceInXs ** 2 + differenceInYs ** 2);
+    return this.a.findDistanceTo(this.b);
   }
 
   get slope() {
