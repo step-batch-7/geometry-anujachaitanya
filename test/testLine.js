@@ -217,4 +217,11 @@ describe("Line", () => {
       assert.deepStrictEqual(line.findPointFromStart(2), { x: 1, y: 3 });
     });
   });
+
+  describe("findDistanceFromEnd", () => {
+    it("should return point from given distance", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 8 });
+      assert.deepStrictEqual(line.findPointFromEnd(2), { x: 1, y: 6 });
+    });
+  });
 });
