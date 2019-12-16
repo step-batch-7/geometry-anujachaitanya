@@ -40,4 +40,16 @@ describe("circle", () => {
       assert.ok(circle.isEqualTo(circle));
     });
   });
+
+  describe("area", () => {
+    it("should return area of circle for given center and point", () => {
+      const circle = new Circle({ x: 1, y: 3 }, 5);
+      assert.strictEqual(circle.area, 78.5);
+    });
+
+    it("should return area if radius is zero", () => {
+      const circle = new Circle({ x: 1, y: 3 }, 0);
+      assert.strictEqual(circle.area, 0);
+    });
+  });
 });

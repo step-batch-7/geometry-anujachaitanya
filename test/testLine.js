@@ -134,13 +134,6 @@ describe("Line", () => {
       const actual = line.findY(0);
       assert.strictEqual(actual, 0);
     });
-
-    it("should give y coordinate for x coordinate of a line parallel to x-axis", () => {
-      const line = new Line({ x: 0, y: 2 }, { x: 4, y: 2 });
-      const actual = line.findY(3);
-      const expected = 2;
-      assert.deepStrictEqual(actual, expected);
-    });
   });
 
   describe("findX", () => {
