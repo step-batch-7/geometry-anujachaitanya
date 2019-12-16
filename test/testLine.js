@@ -218,10 +218,15 @@ describe("Line", () => {
     });
   });
 
-  describe("findDistanceFromEnd", () => {
+  describe("findPointFromEnd", () => {
     it("should return point from given distance", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 1, y: 8 });
       assert.deepStrictEqual(line.findPointFromEnd(2), { x: 1, y: 6 });
     });
+  });
+
+  it("should return point if line have floating values", () => {
+    const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+    assert.deepStrictEqual(line.findPointFromStart(2), { x: 1, y: 1.8 });
   });
 });
