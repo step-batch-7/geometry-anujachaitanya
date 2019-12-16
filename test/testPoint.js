@@ -74,13 +74,35 @@ describe("Point", () => {
       const secondPoint = new Point(2, 3);
       assert.strictEqual(firstPoint.findDistanceTo(secondPoint), 0);
     });
+
+    it("should return distance if co-ordinates have floating values", () => {
+      const firstPoint = new Point(7.2, 3);
+      const secondPoint = new Point(2, 3.7);
+      assert.approximately(
+        firstPoint.findDistanceTo(secondPoint),
+        5.2469,
+        0.0001
+      );
+    });
   });
 
   describe("isOn", () => {
     it("should validate if point is present on line", () => {
+      const point = new Point(2.5, 4);
+      const line = new Line({ x: 2, y: 4 }, { x: 3, y: 4 });
+      assert.ok(point.isOn(line));
+    });
+
+    it("should validate if point is a end of line", () => {
       const point = new Point(2, 3);
       const line = new Line(point, { x: 3, y: 4 });
       assert.ok(point.isOn(line));
+    });
+
+    it("should invalidate if point does not lie on line", () => {
+      const point = new Point(7, 7);
+      const line = new Line({ x: 2, y: 4 }, { x: 3, y: 4 });
+      assert.notOk(point.isOn(line));
     });
   });
 });
