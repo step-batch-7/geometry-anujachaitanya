@@ -24,5 +24,9 @@ Done : 3. modify isParallelTo method use collinear method to implement it
 4. ask vivek about circular dependency
 Done : 5. isOn method
 Done : 5. add tests for isOn method
-6. findPointFromEnd
+Done : 6. findPointFromEnd
 Done : 7. findPointFromStart
+Done : 8. c.toString() // [Circle @(1,2) radius 5]
+Done : 9. c1.isEqualTo(c2) // is true if both circles are at same location & are of same size (edited) 
+10. c.area // gives the area of circle
+11. c.perimeter // gives the perimeter of circle

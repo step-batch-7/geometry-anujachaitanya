@@ -10,4 +10,34 @@ describe("circle", () => {
       assert.strictEqual(actual, expected);
     });
   });
+
+  describe("isEqualTo", () => {
+    it("should validate equal circles", () => {
+      const circle = new Circle({ x: 1, y: 1 }, 5);
+      const otherCircle = new Circle({ x: 1, y: 1 }, 5);
+      assert.ok(circle.isEqualTo(otherCircle));
+    });
+
+    it("should invalidate two circles with same center but different radius", () => {
+      const circle = new Circle({ x: 1, y: 1 }, 2);
+      const otherCircle = new Circle({ x: 1, y: 1 }, 5);
+      assert.notOk(circle.isEqualTo(otherCircle));
+    });
+
+    it("should invalidate two circles with same radius but different center", () => {
+      const circle = new Circle({ x: 1, y: 3 }, 5);
+      const otherCircle = new Circle({ x: 1, y: 1 }, 5);
+      assert.notOk(circle.isEqualTo(otherCircle));
+    });
+
+    it("should invalidate instances of different classes", () => {
+      const circle = new Circle({ x: 1, y: 3 }, 5);
+      assert.notOk(circle.isEqualTo({ x: 1, y: 1 }, 5));
+    });
+
+    it("should validate itself ", () => {
+      const circle = new Circle({ x: 1, y: 3 }, 5);
+      assert.ok(circle.isEqualTo(circle));
+    });
+  });
 });

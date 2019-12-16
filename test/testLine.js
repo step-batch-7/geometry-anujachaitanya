@@ -61,12 +61,6 @@ describe("Line", () => {
   });
 
   describe("isParallelTo", () => {
-    it("should validate given parallel lines with same length", () => {
-      const firstLine = new Line({ x: 1, y: 0 }, { x: 2, y: 0 });
-      const secondLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
-      assert.ok(firstLine.isParallelTo(secondLine));
-    });
-
     it("should validate given parallel lines with different length", () => {
       const firstLine = new Line({ x: 1, y: 1 }, { x: 2, y: 1 });
       const secondLine = new Line({ x: 1, y: 2 }, { x: 3, y: 2 });
@@ -223,17 +217,17 @@ describe("Line", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 1, y: 8 });
       assert.deepStrictEqual(line.findPointFromEnd(2), { x: 1, y: 6 });
     });
-  });
 
-  it("should return point if line have floating values", () => {
-    const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
-    const point = new Point(1, 1.7999999999999998);
-    assert.deepStrictEqual(line.findPointFromEnd(2), point);
-  });
+    it("should return point if line have floating values", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+      const point = new Point(1, 1.7999999999999998);
+      assert.deepStrictEqual(line.findPointFromEnd(2), point);
+    });
 
-  it("should return undefined if distance is not a number", () => {
-    const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
-    const point = new Point(1, 1.7999999999999998);
-    assert.isUndefined(line.findPointFromEnd("a"));
+    it("should return undefined if distance is not a number", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+      const point = new Point(1, 1.7999999999999998);
+      assert.isUndefined(line.findPointFromEnd("a"));
+    });
   });
 });
