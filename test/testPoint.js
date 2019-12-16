@@ -25,14 +25,13 @@ describe("Point", () => {
         5
       );
     });
-
-    it("should perform operation on single element", () => {
-      const point = new Point(2, 3);
-      assert.strictEqual(
-        point.visit(x => x),
-        2
-      );
-    });
+  });
+  it("should perform operation on single element", () => {
+    const point = new Point(2, 3);
+    assert.strictEqual(
+      point.visit(x => x),
+      2
+    );
   });
 
   describe("isEqualTo", () => {

@@ -2,6 +2,10 @@ const arePointsEqual = function(a, b) {
   return a.x === b.x && a.y === b.y;
 };
 
+const findYIntercept = function(point, slope) {
+  return point.y - slope * point.x;
+};
+
 const isNumberInRange = function(range, number) {
   const [lowerLimit, higherLimit] = range.sort();
   return lowerLimit <= number && higherLimit >= number;
