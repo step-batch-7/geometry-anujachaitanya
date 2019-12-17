@@ -59,4 +59,12 @@ describe("Rectangle", () => {
       assert.notOk(rectangle.hasPoint(point));
     });
   });
+
+  describe("isEqualTo", () => {
+    it("should validate two equal rectangle", () => {
+      const rectangle1 = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const rectangle2 = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      assert.ok(rectangle1.isEqualTo(rectangle2));
+    });
+  });
 });

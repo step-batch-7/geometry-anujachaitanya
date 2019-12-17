@@ -11,6 +11,10 @@ const getLengthAndWidth = function(a, c) {
   return [length, breadth];
 };
 
+const areVerticesEqual = function(a, b) {
+  return a.x == b.x && a.y == b.y;
+};
+
 class Rectangle {
   constructor(a, c) {
     this.a = new Point(a.x, a.y);
@@ -29,6 +33,13 @@ class Rectangle {
   get perimeter() {
     const [length, breadth] = getLengthAndWidth(this.a, this.c);
     return 2 * (length + breadth);
+  }
+
+  isEqualTo(rectangle) {
+    if (!rectangle instanceof Rectangle) return false;
+    const isAEqual = areVerticesEqual(rectangle.a, this.a);
+    const isCEqual = areVerticesEqual(rectangle.c, this.c);
+    return isAEqual && isCEqual;
   }
 
   hasPoint(point) {
