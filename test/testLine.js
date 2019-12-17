@@ -1,4 +1,4 @@
-const  Line = require("../src/line");
+const Line = require("../src/line");
 const Point = require("../src/point");
 const assert = require("chai").assert;
 
@@ -38,7 +38,7 @@ describe("Line", () => {
     });
 
     it("should validate if start of one line is equal to end of other and vice versa", () => {
-      const line = new Line({ x: 1, y: 2 },{ x: 1, y: 1 })
+      const line = new Line({ x: 1, y: 2 }, { x: 1, y: 1 });
       const similarLine = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
       assert.ok(line.isEqualTo(similarLine));
     });
@@ -165,7 +165,10 @@ describe("Line", () => {
     it("should return 2 lines split exactly at the centre of line a", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
       const actual = line.split();
-      const expected = [new Line({ x: 1, y: 1 },{ x: 1, y: 1.5 }), new Line({ x: 1, y: 1.5 },{ x: 1, y: 2 })] 
+      const expected = [
+        new Line({ x: 1, y: 1 }, { x: 1, y: 1.5 }),
+        new Line({ x: 1, y: 1.5 }, { x: 1, y: 2 })
+      ];
 
       assert.deepStrictEqual(actual, expected);
     });

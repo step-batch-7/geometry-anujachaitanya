@@ -1,5 +1,5 @@
-const Circle  = require("../src/circle");
-const  Point = require("../src/point");
+const Circle = require("../src/circle");
+const Point = require("../src/point");
 const assert = require("chai").assert;
 
 describe("circle", () => {
@@ -85,11 +85,11 @@ describe("circle", () => {
     });
   });
 
-  describe("moveTo",() =>{
-    it("should move circle to given parameters", () => {
-      const firstCircle = new Circle({x : 1, y:4},5);
-      const movedCircle = new Circle({x :3, y:4},5);
-      assert.deepStrictEqual(firstCircle.moveTo({x :3 , y:4}),movedCircle);
+  describe("moveTo", () => {
+    it("should create new circle for given parameters", () => {
+      const firstCircle = new Circle({ x: 1, y: 4 }, 5);
+      const movedCircle = new Circle({ x: 3, y: 4 }, 5);
+      assert.deepStrictEqual(firstCircle.moveTo({ x: 3, y: 4 }), movedCircle);
     });
   });
 });
