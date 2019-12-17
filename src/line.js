@@ -31,9 +31,9 @@ class Line {
 
   isEqualTo(otherLine) {
     return (
-      otherLine instanceof Line &&
-      this.a.isEqualTo(otherLine.a) &&
-      this.b.isEqualTo(otherLine.b)
+      otherLine instanceof Line && 
+      ((this.a.isEqualTo(otherLine.a) && this.b.isEqualTo(otherLine.b)) || 
+      (this.a.isEqualTo(otherLine.b) && this.b.isEqualTo(otherLine.a)))
     );
   }
 
