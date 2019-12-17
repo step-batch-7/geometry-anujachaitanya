@@ -145,7 +145,7 @@ describe("Line", () => {
     it("should give X for given y is present on line", function() {
       const line = new Line({ x: 6, y: 0 }, { x: 8, y: 3 });
       const actual = line.findX(3);
-      assert.strictEqual(actual, 10.5);
+      assert.strictEqual(actual, 8);
     });
 
     it("should return x when slope is zero", function() {

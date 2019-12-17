@@ -62,7 +62,7 @@ class Line {
     if (!isNumberInRange([this.a.y, this.b.y], y)) return NaN;
     if (this.a.y == this.b.y) return this.a.x;
     const dy = y - this.a.y;
-    return dy * this.slope + this.a.x;
+    return dy / this.slope + this.a.x;
   }
 
   split() {
