@@ -38,7 +38,7 @@ class Circle {
   covers(point) {
     const dx = point.x - this.center.x;
     const dy = (point.y = this.center.y);
-    return dx ** 2 + dy ** 2 <= this.radius ** 2;
+    return point instanceof Point && dx ** 2 + dy ** 2 < this.radius ** 2;
   }
 }
 
