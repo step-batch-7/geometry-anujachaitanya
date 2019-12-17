@@ -24,6 +24,7 @@ class Point {
   }
 
   findDistanceTo(point) {
+    if(!(point instanceof Point)) return NaN;
     const differenceInXs = this.x - point.x;
     const differenceInYs = this.y - point.y;
     return Math.sqrt(differenceInXs ** 2 + differenceInYs ** 2);

@@ -77,6 +77,11 @@ describe("Point", () => {
       assert.strictEqual(firstPoint.findDistanceTo(secondPoint), 0);
     });
 
+    it("should return NaN if given is not a point", () => {
+      const firstPoint = new Point(7.2, 3);
+      assert.isNaN(firstPoint.findDistanceTo({x:2,y:3}));
+    });
+
     it("should return distance if co-ordinates have floating values", () => {
       const firstPoint = new Point(7.2, 3);
       const secondPoint = new Point(2, 3.7);
@@ -86,6 +91,7 @@ describe("Point", () => {
         0.0001
       );
     });
+
   });
 
   describe("isOn", () => {
