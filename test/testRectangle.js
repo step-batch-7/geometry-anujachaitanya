@@ -26,4 +26,11 @@ describe("Rectangle", () => {
       assert.strictEqual(rectangle.area, 16);
     });
   });
+
+  describe("perimeter", () => {
+    it("should return perimeter of given rectangle with positive points", () => {
+      const rectangle = new Rectangle({ x: 1, y: 1 }, { x: 4, y: 5 });
+      assert.strictEqual(rectangle.perimeter, 14);
+    });
+  });
 });
