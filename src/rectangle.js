@@ -32,6 +32,7 @@ class Rectangle {
   }
 
   hasPoint(point) {
+    if (!(point instanceof Point)) return false;
     const areXsEqual = point.x == this.a.x || point.x == this.c.x;
     const areYsEqual = point.y == this.a.y || point.y == this.c.y;
     const isXInRange = isNumberInRange([this.a.x, this.c.x], point.x);
