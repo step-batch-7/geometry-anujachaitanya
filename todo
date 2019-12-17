@@ -32,3 +32,5 @@ Done : 10. c.area // gives the area of circle
 Done : 11. c.perimeter // gives the perimeter of circle
 Done : 12. c.hasPoint(p) // is true if circle c has point p on it
 Done : 13. p.isOn(c) // is true if point p is on circle c
+
+-----------------------------17 dec------------------------------

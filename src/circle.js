@@ -26,7 +26,9 @@ class Circle {
   }
 
   hasPoint(point) {
-    return this.center.findDistanceTo(point) == this.radius;
+    return (
+      point instanceof Point && this.center.findDistanceTo(point) == this.radius
+    );
   }
 }
 

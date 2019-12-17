@@ -78,5 +78,10 @@ describe("circle", () => {
       const point = new Point(1, 5);
       assert.notOk(circle.hasPoint(point));
     });
+
+    it("should invalidate if given is not point", () => {
+      const circle = new Circle({ x: 1, y: 1 }, 5);
+      assert.notOk(circle.hasPoint({ x: 1, y: 1 }));
+    });
   });
 });
