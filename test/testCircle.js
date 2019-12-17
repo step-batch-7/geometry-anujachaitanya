@@ -92,4 +92,24 @@ describe("circle", () => {
       assert.deepStrictEqual(firstCircle.moveTo({ x: 3, y: 4 }), movedCircle);
     });
   });
+
+  describe("covers", () => {
+    it("should validate if point is on circle", () => {
+      const circle = new Circle({ x: 1, y: 4 }, 5);
+      const point = new Point(2, 3);
+      assert.ok(circle.covers(point));
+    });
+
+    it("should validate point on circumference", () => {
+      const circle = new Circle({ x: 1, y: 4 }, 5);
+      const point = new Point(1, 9);
+      assert.ok(circle.covers(point));
+    });
+
+    it("should invalidate point outside the circle", () => {
+      const circle = new Circle({ x: 1, y: 4 }, 5);
+      const point = new Point(8, 8);
+      assert.notOk(circle.covers(point));
+    });
+  });
 });
