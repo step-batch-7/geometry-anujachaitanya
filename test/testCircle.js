@@ -45,7 +45,7 @@ describe("circle", () => {
   describe("area", () => {
     it("should return area of circle for given center and point", () => {
       const circle = new Circle({ x: 1, y: 3 }, 5);
-      assert.strictEqual(circle.area, 78.5);
+      assert.approximately(circle.area, 78.539, 0.001);
     });
 
     it("should return area if radius is zero", () => {
@@ -57,7 +57,7 @@ describe("circle", () => {
   describe("perimeter", () => {
     it("should return perimeter for given circle", () => {
       const circle = new Circle({ x: 1, y: 3 }, 5);
-      assert.approximately(circle.perimeter, 31.4, 0.001);
+      assert.approximately(circle.perimeter, 31.415, 0.001);
     });
 
     it("should return perimeter for zero as radius", () => {
