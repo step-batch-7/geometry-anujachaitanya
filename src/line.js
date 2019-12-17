@@ -26,7 +26,7 @@ class Line {
   }
 
   toString() {
-    return `[Line (${this.a.x},${this.a.y}) to (${this.b.x},${this.b.x})]`;
+    return `[Line (${this.a.x},${this.a.y}) to (${this.b.x},${this.b.y})]`;
   }
 
   isEqualTo(otherLine) {
