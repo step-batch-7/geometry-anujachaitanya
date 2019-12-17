@@ -60,12 +60,9 @@ class Line {
 
   findX(y) {
     if (!isNumberInRange([this.a.y, this.b.y], y)) return NaN;
+    if (this.a.y == this.b.y) return this.a.x;
     const dy = y - this.a.y;
-    const x = dy / this.slope + this.a.x;
-    if (isNaN(x)) {
-      return this.a.x;
-    }
-    return x;
+    return dy * this.slope + this.a.x;
   }
 
   split() {
