@@ -46,5 +46,17 @@ describe("Rectangle", () => {
       const point = new Point(2, 5);
       assert.ok(rectangle.hasPoint(point));
     });
+
+    it("should validate if point is end of diagonal", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const point = new Point(2, 4);
+      assert.ok(rectangle.hasPoint(point));
+    });
+
+    it("should invalidate if point is not on rectangle", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const point = new Point(2, 8);
+      assert.notOk(rectangle.hasPoint(point));
+    });
   });
 });
