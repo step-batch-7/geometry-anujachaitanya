@@ -54,6 +54,7 @@ class Rectangle {
   }
 
   covers(point) {
+    if (!(point instanceof Point)) return false;
     const isXInRange = isNumberInRange([this.a.x, this.c.x], point.x);
     const isYInRange = isNumberInRange([this.a.y, this.c.y], point.y);
     return isXInRange && isYInRange;

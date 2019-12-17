@@ -88,8 +88,25 @@ describe("Rectangle", () => {
   describe("covers", () => {
     it("should validate when point is on rectangle", () => {
       const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const point = new Point(3, 5);
+      assert.ok(rectangle.covers(point));
+    });
+
+    it("should validate if point is on the edge of rectangle", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
       const point = new Point(2, 5);
       assert.ok(rectangle.covers(point));
+    });
+
+    it("should invalidate if point is outside of rectangle", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const point = new Point(2, 3);
+      assert.notOk(rectangle.covers(point));
+    });
+
+    it("should invalidate if given is not point", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      assert.notOk(rectangle.covers({ x: 2, y: 4 }));
     });
   });
 });
