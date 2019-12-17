@@ -66,5 +66,22 @@ describe("Rectangle", () => {
       const rectangle2 = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
       assert.ok(rectangle1.isEqualTo(rectangle2));
     });
+
+    it("should validate when first point of diagonal is same as second point of other", () => {
+      const rectangle1 = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const rectangle2 = new Rectangle({ x: 4, y: 6 }, { x: 2, y: 4 });
+      assert.ok(rectangle1.isEqualTo(rectangle2));
+    });
+
+    it("should invalidate if given is not instance of Rectangle", () => {
+      const rectangle1 = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      assert.notOk(rectangle1.isEqualTo({ x: 2, y: 4 }));
+    });
+
+    it("should invalidate unequal rectangles", () => {
+      const rectangle1 = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const rectangle2 = new Rectangle({ x: 4, y: 7 }, { x: 2, y: 4 });
+      assert.notOk(rectangle1.isEqualTo(rectangle2));
+    });
   });
 });

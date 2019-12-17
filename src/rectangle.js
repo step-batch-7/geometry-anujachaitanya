@@ -35,10 +35,12 @@ class Rectangle {
     return 2 * (length + breadth);
   }
 
-  isEqualTo(rectangle) {
-    if (!rectangle instanceof Rectangle) return false;
-    const isAEqual = areVerticesEqual(rectangle.a, this.a);
-    const isCEqual = areVerticesEqual(rectangle.c, this.c);
+  isEqualTo(other) {
+    if (!(other instanceof Rectangle)) return false;
+    const isAEqual =
+      areVerticesEqual(other.a, this.a) || areVerticesEqual(other.a, this.c);
+    const isCEqual =
+      areVerticesEqual(other.c, this.c) || areVerticesEqual(other.c, this.a);
     return isAEqual && isCEqual;
   }
 
