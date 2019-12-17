@@ -30,6 +30,10 @@ class Circle {
       point instanceof Point && this.center.findDistanceTo(point) == this.radius
     );
   }
+
+  moveTo(point){
+    return new Circle({x : point.x , y: point.y},this.radius)
+  }
 }
 
 module.exports = Circle ;
