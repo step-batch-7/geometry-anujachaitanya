@@ -32,5 +32,10 @@ describe("Rectangle", () => {
       const rectangle = new Rectangle({ x: 1, y: 1 }, { x: 4, y: 5 });
       assert.strictEqual(rectangle.perimeter, 14);
     });
+
+    it("should return perimeter of given rectangle with negative points", () => {
+      const rectangle = new Rectangle({ x: -1, y: -1 }, { x: -4, y: -5 });
+      assert.strictEqual(rectangle.perimeter, 14);
+    });
   });
 });

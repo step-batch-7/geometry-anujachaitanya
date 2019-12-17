@@ -1,12 +1,15 @@
 const Point = require("./point");
+const Line = require("./line");
+
+getLengthAndWidth = function(a, c) {
+  const length = Math.abs(a.x - c.x);
+  const breadth = Math.abs(a.y - c.y);
+  return [length, breadth];
+};
 class Rectangle {
-  #b;
-  #d;
   constructor(a, c) {
     this.a = new Point(a.x, a.y);
-    this.#b = new Point(a.x, c.y);
     this.c = new Point(c.x, c.y);
-    this.#d = new Point(c.x, a.y);
   }
 
   toString() {
@@ -14,14 +17,12 @@ class Rectangle {
   }
 
   get area() {
-    const length = this.a.findDistanceTo(this.#b);
-    const breadth = this.#b.findDistanceTo(this.c);
+    const [length, breadth] = getLengthAndWidth(this.a, this.c);
     return length * breadth;
   }
 
   get perimeter() {
-    const length = this.a.findDistanceTo(this.#b);
-    const breadth = this.#b.findDistanceTo(this.c);
+    const [length, breadth] = getLengthAndWidth(this.a, this.c);
     return 2 * (length + breadth);
   }
 }
