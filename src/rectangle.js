@@ -1,11 +1,12 @@
 const Point = require("./point");
 const Line = require("./line");
 
-getLengthAndWidth = function(a, c) {
+const getLengthAndWidth = function(a, c) {
   const length = Math.abs(a.x - c.x);
   const breadth = Math.abs(a.y - c.y);
   return [length, breadth];
 };
+
 class Rectangle {
   constructor(a, c) {
     this.a = new Point(a.x, a.y);
