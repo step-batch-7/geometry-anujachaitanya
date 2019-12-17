@@ -1,4 +1,4 @@
-const { Point } = require("./point");
+const Point = require("./point");
 
 const isNumberInRange = function(range, number) {
   const [lowerLimit, higherLimit] = range.sort();
@@ -101,4 +101,4 @@ class Line {
   }
 }
 
-module.exports = { Line };
+module.exports = Line ;
