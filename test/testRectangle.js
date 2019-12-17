@@ -1,4 +1,5 @@
 const assert = require("chai").assert;
+const Point = require("../src/point");
 const Rectangle = require("../src/rectangle");
 
 describe("Rectangle", () => {
@@ -36,6 +37,14 @@ describe("Rectangle", () => {
     it("should return perimeter of given rectangle with negative points", () => {
       const rectangle = new Rectangle({ x: -1, y: -1 }, { x: -4, y: -5 });
       assert.strictEqual(rectangle.perimeter, 14);
+    });
+  });
+
+  describe("hasPoint", () => {
+    it("should validate if point on side", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const point = new Point(2, 5);
+      assert.ok(rectangle.hasPoint(point));
     });
   });
 });
