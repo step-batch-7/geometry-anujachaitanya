@@ -159,10 +159,7 @@ describe("Line", () => {
     it("should return 2 lines split exactly at the centre of line a", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 1, y: 2 });
       const actual = line.split();
-      const expected = [
-        { a: { x: 1, y: 1 }, b: { x: 1, y: 1.5 } },
-        { a: { x: 1, y: 1.5 }, b: { x: 1, y: 2 } }
-      ];
+      const expected = [new Line({ x: 1, y: 1 },{ x: 1, y: 1.5 }), new Line({ x: 1, y: 1.5 },{ x: 1, y: 2 })] 
 
       assert.deepStrictEqual(actual, expected);
     });
