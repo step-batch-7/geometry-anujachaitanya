@@ -31,9 +31,9 @@ class Line {
 
   isEqualTo(otherLine) {
     return (
-      otherLine instanceof Line && 
-      ((this.a.isEqualTo(otherLine.a) && this.b.isEqualTo(otherLine.b)) || 
-      (this.a.isEqualTo(otherLine.b) && this.b.isEqualTo(otherLine.a)))
+      otherLine instanceof Line &&
+      ((this.a.isEqualTo(otherLine.a) && this.b.isEqualTo(otherLine.b)) ||
+        (this.a.isEqualTo(otherLine.b) && this.b.isEqualTo(otherLine.a)))
     );
   }
 
@@ -42,7 +42,8 @@ class Line {
   }
 
   get slope() {
-    return (this.b.y - this.a.y) / (this.b.x - this.a.x);
+    const slope = (this.b.y - this.a.y) / (this.b.x - this.a.x);
+    return slope == -Infinity ? Infinity : slope;
   }
 
   isParallelTo(otherLine) {
@@ -101,4 +102,4 @@ class Line {
   }
 }
 
-module.exports = Line ;
+module.exports = Line;

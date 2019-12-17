@@ -84,4 +84,12 @@ describe("Rectangle", () => {
       assert.notOk(rectangle1.isEqualTo(rectangle2));
     });
   });
+
+  describe("covers", () => {
+    it("should validate when point is on rectangle", () => {
+      const rectangle = new Rectangle({ x: 2, y: 4 }, { x: 4, y: 6 });
+      const point = new Point(2, 5);
+      assert.ok(rectangle.covers(point));
+    });
+  });
 });
