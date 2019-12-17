@@ -86,7 +86,7 @@ class Line {
 
   findPointFromStart(distance) {
     const point = getPointFromDistance(this.a, this.b, distance, this.length);
-    if ([point.x, point.y].includes(NaN)) {
+    if (isNaN(point.x) || isNaN(point.y)) {
       return undefined;
     }
     return point;
@@ -94,7 +94,7 @@ class Line {
 
   findPointFromEnd(distance) {
     const point = getPointFromDistance(this.b, this.a, distance, this.length);
-    if ([point.x, point.y].includes(NaN)) {
+    if (isNaN(point.x) || isNaN(point.y)) {
       return undefined;
     }
     return point;
