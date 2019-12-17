@@ -134,6 +134,12 @@ describe("Line", () => {
       const actual = line.findY(0);
       assert.strictEqual(actual, 0);
     });
+
+    it("should return y if both x co-ordinate are equal", () => {
+      const line = new Line({ x: 0, y: 0 }, { x: 0, y: 8 });
+      const actual = line.findY(0);
+      assert.strictEqual(actual, 0);
+    });
   });
 
   describe("findX", () => {

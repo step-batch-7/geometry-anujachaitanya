@@ -53,12 +53,9 @@ class Line {
 
   findY(x) {
     if (!isNumberInRange([this.a.x, this.b.x], x)) return NaN;
+    if (this.a.x == this.b.x) return this.a.y;
     const dx = x - this.a.x;
-    const y = dx * this.slope + this.a.y;
-    if (isNaN(y)) {
-      return this.a.y;
-    }
-    return y;
+    return dx * this.slope + this.a.y;
   }
 
   findX(y) {
