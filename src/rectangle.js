@@ -1,4 +1,5 @@
 const Point = require("./point");
+const Line = require("./line");
 
 const isNumberInRange = function(range, number) {
   const [lowerLimit, higherLimit] = range.sort();
@@ -37,11 +38,9 @@ class Rectangle {
 
   isEqualTo(other) {
     if (!(other instanceof Rectangle)) return false;
-    const isAEqual =
-      areVerticesEqual(other.a, this.a) || areVerticesEqual(other.a, this.c);
-    const isCEqual =
-      areVerticesEqual(other.c, this.c) || areVerticesEqual(other.c, this.a);
-    return isAEqual && isCEqual;
+    const diagonalA = new Line(other.a, other.c);
+    const diagonalB = new Line(this.a, this.c);
+    return diagonalA.isEqualTo(diagonalB);
   }
 
   hasPoint(point) {
