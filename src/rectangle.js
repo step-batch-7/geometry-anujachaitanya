@@ -1,5 +1,4 @@
 const Point = require("./point");
-const Line = require("./line");
 
 const isNumberInRange = function(range, number) {
   const [lowerLimit, higherLimit] = range.sort();

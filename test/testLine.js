@@ -195,7 +195,7 @@ describe("Line", () => {
 
     it("should invalidate if the given object is not a point object", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 8, y: 8 });
-      const actual = line.hasPoint(new Point({ x: 1, y: 1 }));
+      const actual = line.hasPoint({ x: 1, y: 1 });
       assert.isNotOk(actual);
     });
   });
