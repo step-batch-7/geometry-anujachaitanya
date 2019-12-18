@@ -215,6 +215,16 @@ describe("Line", () => {
       const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
       assert.deepStrictEqual(line.findPointFromStart(2), { x: 1, y: 3 });
     });
+
+    it("should return null if given distance is greater than line length", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+      assert.isNull(line.findPointFromStart(8));
+    });
+
+    it("should return null if given distance is less zero", () => {
+      const line = new Line({ x: 1, y: 1 }, { x: 1, y: 3.8 });
+      assert.isNull(line.findPointFromStart(-1));
+    });
   });
 
   describe("findPointFromEnd", () => {
