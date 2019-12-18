@@ -53,7 +53,7 @@ class Rectangle {
     if (!(point instanceof Point)) return false;
     const isXInRange = isNumberInRange([this.a.x, this.c.x], point.x);
     const isYInRange = isNumberInRange([this.a.y, this.c.y], point.y);
-    return isXInRange && isYInRange;
+    return isXInRange && isYInRange && !this.hasPoint(point);
   }
 }
 
