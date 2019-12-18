@@ -100,10 +100,10 @@ describe("circle", () => {
       assert.ok(circle.covers(point));
     });
 
-    it("should validate point on circumference", () => {
+    it("should invalidate point on circumference", () => {
       const circle = new Circle({ x: 1, y: 4 }, 5);
       const point = new Point(6, 4);
-      assert.ok(circle.covers(point));
+      assert.notOk(circle.covers(point));
     });
 
     it("should invalidate if given is not point", () => {
