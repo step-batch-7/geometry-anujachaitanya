@@ -89,14 +89,7 @@ describe("circle", () => {
     it("should create new circle for given parameters", () => {
       const firstCircle = new Circle({ x: 1, y: 4 }, 5);
       const movedCircle = new Circle({ x: 3, y: 4 }, 5);
-      const point = new Point(3, 4);
-      assert.deepStrictEqual(firstCircle.moveTo(point), movedCircle);
-    });
-
-    it("should return null if given is not point", () => {
-      const firstCircle = new Circle({ x: 1, y: 4 }, 5);
-      const movedCircle = new Circle({ x: 3, y: 4 }, 5);
-      assert.isNull(firstCircle.moveTo({ x: 3, y: 4 }));
+      assert.deepStrictEqual(firstCircle.moveTo({ x: 3, y: 4 }), movedCircle);
     });
   });
 
