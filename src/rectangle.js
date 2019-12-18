@@ -12,10 +12,6 @@ const getLengthAndWidth = function(a, c) {
   return [length, breadth];
 };
 
-const areVerticesEqual = function(a, b) {
-  return a.x == b.x && a.y == b.y;
-};
-
 class Rectangle {
   constructor(a, c) {
     this.a = new Point(a.x, a.y);
@@ -38,9 +34,11 @@ class Rectangle {
 
   isEqualTo(other) {
     if (!(other instanceof Rectangle)) return false;
-    const diagonalA = new Line(other.a, other.c);
-    const diagonalB = new Line(this.a, this.c);
-    return diagonalA.isEqualTo(diagonalB);
+    const pointA = new Point(other.a.x, other.a.y);
+    const isPointAEqual = pointA.isEqualTo(this.a) || pointA.isEqualTo(this.c);
+    const pointC = new Point(other.c.x, other.c.y);
+    const isPointCEqual = pointC.isEqualTo(this.a) || pointC.isEqualTo(this.c);
+    return isPointAEqual && isPointCEqual;
   }
 
   hasPoint(point) {
